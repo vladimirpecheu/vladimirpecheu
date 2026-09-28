@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vladimir Pecheu | Economics, Penn State</title>
+<meta name="description" content="Vladimir Pecheu, applied economist working on labor economics, industrial relations, inequality, and business regulation. Assistant Teaching Professor of Economics at the Pennsylvania State University.">
+<style>
+  :root {
+    --paper: #FBFBFA;
+    --ink: #1B2233;
+    --muted: #5A6070;
+    --link: #2436B8;
+    --rule: #DADDE3;
+    --display: Arial, Helvetica, sans-serif;
+    --text: Arial, Helvetica, sans-serif;
+    --name-size: clamp(1.75rem, 4.25vw, 2.875rem);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14171F;
+      --ink: #E6E8EE;
+      --muted: #9AA1B0;
+      --link: #9AAAFF;
+      --rule: #2A2F3A;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--link); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+  .page { max-width: 64rem; margin: 0 auto; padding: 4.5rem 1.5rem 3rem; }
+
+  /* Header */
+  .name {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: var(--name-size);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+  }
+  .position { margin: 0; font-size: 1.2rem; }
+  .position span { display: block; color: var(--muted); }
+  .contact { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+  .bio { max-width: 40rem; margin: 2.25rem 0 0; }
+
+  /* Photo: spans from the top of the name to the bottom of the contact links */
+  .intro { display: flex; align-items: stretch; gap: 1.75rem; }
+  .id { flex: 1 1 auto; }
+  /* Starts just above the top of the name and runs down to about the middle of the bio */
+  .photo { position: relative; flex: 0 0 clamp(9rem, 22vw, 12.25rem); aspect-ratio: 275 / 343; align-self: flex-start; margin-top: calc(var(--name-size) * 0.1); }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+  @media (max-width: 559px) {
+    .intro { flex-direction: column; gap: 1.25rem; }
+    .photo { order: -1; flex: none; width: 7.5rem; aspect-ratio: 275 / 343; margin: 0; }
+  }
+
+  /* Sections */
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem 3rem;
+    border-top: 1px solid var(--rule);
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .entries { max-width: 42rem; }
+
+  .paper { margin: 0 0 2.25rem; }
+  .paper:last-child { margin-bottom: 0; }
+  .title { font-weight: 700; font-size: 1.1rem; line-height: 1.4; margin: 0; }
+  .with, .venue { margin: 0.2rem 0 0; color: var(--muted); }
+  .with a { color: inherit; }
+  .with a:hover { color: var(--link); }
+  .translation { margin: 0.2rem 0 0; font-style: italic; color: var(--muted); }
+  .status { font-style: italic; color: var(--muted); }
+
+  .links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 1.25rem; margin: 0.45rem 0 0; }
+
+  details { margin-top: 0.45rem; }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    color: var(--link);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "+";
+    font-family: var(--display);
+    font-weight: 700;
+    display: inline-block;
+    width: 0.7em;
+    transition: transform 0.2s ease;
+  }
+  details[open] summary::before { transform: rotate(45deg); }
+  details p {
+    margin: 0.6rem 0 0.25rem;
+    padding-left: 1.15rem;
+    border-left: 2px solid var(--rule);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .wip .paper { margin-bottom: 1.25rem; }
+
+  footer { margin-top: 4.5rem; color: var(--muted); font-size: 0.95rem; }
+
+  @media (min-width: 880px) {
+    .page { padding-top: 6.5rem; }
+    section { grid-template-columns: 11.5rem minmax(0, 42rem); }
+    h2 { position: sticky; top: 1.75rem; align-self: start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    summary::before { transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="intro">
+    <div class="id">
+    <h1 class="name">Vladimir Pecheu</h1>
+    <p class="position">Assistant Teaching Professor of Economics<span>The Pennsylvania State University</span></p>
+    <ul class="contact">
+      <li><a href="mailto:vpecheu@protonmail.ch">vpecheu@protonmail.ch</a></li>
+      <li><a href="files/cv.pdf">CV</a></li>
+      <li><a href="https://scholar.google.com/citations?user=FHX1BSEAAAAJ">Google Scholar</a></li>
+      <li><a href="https://www.linkedin.com/in/vladimir-pecheu-81961168/">LinkedIn</a></li>
+    </ul>
+    <p class="bio">I am an applied economist working in labor economics, organizational behavior, and public policy. I hold a Ph.D. in Economics from the University of California, Los Angeles. My research covers industrial relations, inequality, and business regulation.</p>
+    </div>
+    <div class="photo"><img src="data:image/jpeg;base64,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" alt="Portrait of Vladimir Pecheu"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ PUBLISHED PAPERS ============ -->
+    <section>
+      <h2>Published papers</h2>
+      <div class="entries">
+
+        <article class="paper">
+          <p class="title">Off the Clock? Working Time Misperceptions and Labour Market Outcomes</p>
+          <p class="with">with <a href="https://baptroux.github.io/">Baptiste Roux</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html">Thomas Breda</a></p>
+          <p class="venue"><em>Labour Economics</em>, forthcoming</p>
+        </article>
+
+        <article class="paper">
+          <p class="title">Does Feasibility Explain the Unequal Development of Working From Home?</p>
+          <p class="with">with <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html">Thomas Breda</a> and <a href="https://www.ipp.eu/annuaire/paul-dutronc/">Paul Dutronc-Postel</a></p>
+          <p class="venue"><em>Journal of Economic Behavior &amp; Organization</em>, vol. 241, 2026</p>
+          <div class="links"><a href="https://doi.org/10.1016/j.jebo.2025.107328">Journal version</a><a href="https://shs.hal.science/halshs-04777568/file/wp202450_.pdf">Working paper version</a></div>
+          <details>
+            <summary>Abstract</summary>
+            <p>Using rich historical surveys on job tasks and advanced machine learning techniques, we study which jobs can be moved from the office to home over three decades in France. The share of jobs that can be done from home has increased steadily from 14% in 1991 to 45% in 2021. At the same time, actual Working From Home (WFH) remained limited to less than one fifth of its full potential before the Covid-19 crisis and is still below it in 2021. The growth of WFH is largely unrelated to the evolution of job tasks, implying that the main obstacles to WFH have not been technical constraints. Low-skilled employees in particular have jobs that have long been largely teleworkable but they were barely teleworking before the Covid-19 crisis and remained still below 50% of their full potential during it. This pattern is not explained by differences in workers’ desire to telework. It implies that the well-known large inequality in access to WFH along the earnings distribution cannot be attributed only to feasibility constraints and is potentially inefficient.</p>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ WORKING PAPERS ============ -->
+    <section>
+      <h2>Working papers</h2>
+      <div class="entries">
+
+        <article class="paper">
+          <p class="title">Union Ideology and Worker and Firm Outcomes</p>
+          <p class="with">with <a href="https://economics.mit.edu/people/faculty/simon-jager">Simon Jäger</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html">Thomas Breda</a></p>
+          <div class="links"><a href="files/union-ideology.pdf">Paper</a></div>
+          <details>
+            <summary>Abstract</summary>
+            <p>Labor unions across the world differ markedly in their ideology, ranging from radical unions with an anti-capitalist ideology to cooperative reformists. To understand the effect of union ideology on worker outcomes, we study France’s institutional setting, where unions with sharply contrasting ideologies compete in workplace elections for collective bargaining rights. Workers and firms sort systematically by union ideology: low-wage workers and less productive establishments are more likely to be represented by radical unions, high-wage workers and more productive establishments tend to be represented by reformist unions. Conditional on establishment and worker effects, radical unions are associated with wage penalties, reformist unions with wage premia for workers (concentrated among white-collar workers). As an additional source of sharp variation in union representation, we focus on close establishment-level elections that determine which unions represent workers. Although close elections reveal no significant average wage effects, radical unions significantly reduce blue-collar worker exit rates relative to reformist unions. To understand the mechanisms underlying our results, we study bargaining behavior and find that electing a radical union leads to more strikes and more refusal to sign bargaining agreements compared to electing a reformist union. Radical unions appear to successfully protect blue-collar employment, but their confrontational approach does not yield wage gains for workers.</p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <p class="title">Dynamics of the Gender Gap in Lifetime Earnings in France</p>
+          <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac">Frédérique Savignac</a></p>
+          <div class="links"><a href="files/lifetime-earnings.pdf">Paper</a><a href="https://cepr.org/voxeu/columns/trends-and-inequality-lifetime-earnings-france">VoxEU</a></div>
+          <details>
+            <summary>Abstract</summary>
+            <p>This paper is the first to compute lifetime earnings (LTE) in France for a large number of cohorts, that entered the labour market between 1967 and 1987. We analyze the trends across cohorts and gender, and document sharp differences with the United States, based on results in Guvenen et al. (2022). Median LTE show similar flat trends in both countries, but in France this results from a moderate increase for both genders together with increased female participation, while in the U.S., LTE declines for men and sharply grows for women. Most notably, we find that the gender LTE gap has been significantly larger in the U.S. than in France. Differences in working time explain an increasing share of the gender gap in LTE across successive cohorts, as the rise in women’s working years was primarily through part-time employment. Additionally, lower promotion opportunities for women account for a progressively larger share of the gender gap as we move up the distribution of earnings.</p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <p class="title">Under-Reporting of Firm Size Around Size-Dependent Regulation Thresholds</p>
+          <p class="with">with <a href="https://www.cmh.ens.fr/en/author/philippe-askenazy/">Philippe Askenazy</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html">Thomas Breda</a></p>
+          <div class="links"><a href="https://halshs.archives-ouvertes.fr/halshs-03614750/document">Paper</a></div>
+          <details>
+            <summary>Abstract</summary>
+            <p>The existence of a peak at 49 employees in the firm size distribution in France, followed by a permanent decrease in the number of firms has been the starting point of political discourses and academic studies on the cost of size-dependent regulations at 50-employee. These features of the distribution are visible when firm size is declared by employers in fiscal data but not when it is reconstructed from individual-level social security data. This working paper explores these differences both from statistical and institutional viewpoints. It provides evidence showing that a large proportion of employers manipulate the firm size they declare in their fiscal documents. This manipulation generates the particular shape of the size distribution in the fiscal data. We discuss the rationale for such behavior: the key point is that the under-declaration in fiscal data is not subject to substantial sanctions and it can allow firms not to comply with the labor law. Event studies and comparisons of firms below and above the 50-employee threshold suggest that this threshold may only have limited effects on firm performance or growth potential. Consequently the welfare costs of the regulations at 50-employee might be smaller than what was found by some of the studies that assume a perfect compliance with the law.</p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <p class="title">Profit Sharing as a Bargaining Weapon Against Unions</p>
+          <div class="links"><a href="https://shs.hal.science/halshs-03247551/document">Paper</a></div>
+          <details>
+            <summary>Abstract</summary>
+            <p>I show that one reason why employers use profit sharing is to weaken their unions and increase their share of the surplus. I develop a model where by making compensation dependent on output, profit sharing weakens unions’ ability to motivate employees to strike. Unions lose reputation for being strong, which further reduces their bargaining power. Resorting to plausibly exogenous variation in the aggressiveness of unions, I show that employers anticipate this increased threat by a larger usage of profit sharing. Its payment leads to a reduction in strike length, and to a drop in wage growth of 13%. The effect is concentrated on lower occupations for whom growth is almost halved.</p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <p class="title">Labor Facing Capital in the Workplace: The Role of Worker Representatives</p>
+          <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/bourdieu-jerome/">Jérôme Bourdieu</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html">Thomas Breda</a></p>
+          <div class="links"><a href="files/worker-representatives.pdf">Paper</a><a href="https://www.lemonde.fr/economie/article/2023/12/07/les-procedures-contre-des-delegues-syndicaux-se-multiplient-entre-convocations-a-la-gendarmerie-poursuites-en-justice-et-licenciements_6204380_3234.html">Le Monde</a></div>
+          <details>
+            <summary>Abstract</summary>
+            <p>The paper studies how the personal career of union (or worker) representatives is tied to the conditions in which revenues are shared between labor and capital at the firm-level. We argue that employers can have a strategic interest in either favoring or discriminating against union representatives in order to lower workers’ bargaining power. The first strategy (favoritism) amounts to “buying the social peace” and can only be implemented with willing representatives. The second (discrimination) is a way to stigmatize vindictive representatives and curb their demands, notably by discouraging other workers to join the union. The behavior of union representatives during firm negotiations and the stake of those negotiations influence employers’ willingness to use one or the other of those strategies. We formalize this theory with a model and provide evidence to support it using a rich survey for France in 2017 combined with administrative data on earnings and firm performance. Union representatives that are the most active during their mandate or represent the most campaigning unions have worse career outcomes, while those that do not participate in strikes experience a wage premium. Workers are in turn more likely to think that joining a union will negatively affect their career in firms where union representatives are paid less than their colleagues or feel discriminated against. Together, these results show that employers’ capacity to affect representatives’ careers can impair the quality of workers’ representation and workers’ ability to organize collectively in order to take part in the firm decision-making process.</p>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ WORK IN PROGRESS ============ -->
+    <section class="wip">
+      <h2>Work in progress</h2>
+      <div class="entries">
+
+        <article class="paper">
+          <p class="title">Spatial Competition and Market Power in Regional Markets</p>
+          <p class="with">with <a href="http://www.econ.ucla.edu/mazzocco/">Maurizio Mazzocco</a></p>
+        </article>
+
+        <article class="paper">
+          <p class="title">The Energy Saving Effects of Working from Home</p>
+          <p class="with">with <a href="https://www.ipp.eu/annuaire/paul-dutronc/">Paul Dutronc-Postel</a></p>
+        </article>
+
+        <article class="paper">
+          <p class="title">Earnings Mobility in France in Comparison with the United States</p>
+          <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac">Frédérique Savignac</a></p>
+        </article>
+
+        <article class="paper">
+          <p class="title">Occupational Hardship and Health Inequalities Driven by Pension Policy</p>
+        </article>
+
+        <article class="paper">
+          <p class="title">The Tax Elasticity of Profit Sharing in France</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ POLICY REPORTS ============ -->
+    <section>
+      <h2>Policy reports</h2>
+      <div class="entries">
+
+        <article class="paper">
+          <p class="title">Trends and Inequality in Lifetime Earnings in France</p>
+          <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac">Frédérique Savignac</a></p>
+          <div class="links"><a href="https://cepr.org/voxeu/columns/trends-and-inequality-lifetime-earnings-france">VoxEU column</a></div>
+        </article>
+
+        <article class="paper">
+          <p class="title">Are Companies Under-reporting Their Headcount at 49 Employees to Avoid Regulations?</p>
+          <p class="translation" lang="fr">Les entreprises sous-déclarent-elles leur effectif à 49 salariés pour contourner la loi ?</p>
+          <p class="with">with <a href="http://www.jourdan.ens.fr/~askenazy/">Philippe Askenazy</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html">Thomas Breda</a></p>
+          <p class="venue">Policy Brief, Institut des Politiques Publiques, 2022</p>
+          <div class="links"><a href="https://www.ipp.eu/wp-content/uploads/2022/03/note_seuils_sociaux_admin.pdf">Policy brief</a></div>
+        </article>
+
+        <article class="paper">
+          <p class="title">Studying Employee Representatives to Better Understand Industrial Relations and the Split of the Value Added</p>
+          <p class="translation" lang="fr">Étudier les représentants du personnel pour mieux comprendre les relations de travail et les conditions du partage de la valeur ajoutée</p>
+          <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/bourdieu-jerome/">Jérôme Bourdieu</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html">Thomas Breda</a></p>
+          <p class="venue">Report for the French Ministry of Labor (DARES), 2021</p>
+          <div class="links">
+            <a href="https://dares.travail-emploi.gouv.fr/publication/etudier-les-representants-du-personnel-pour-mieux-comprendre-les-relations-de-travail">Report</a>
+            <a href="files/lamy-interview.pdf">Interview for La semaine sociale Lamy</a>
+            <a href="https://www.inegalites.fr/Les-representants-syndicaux-sont-discrimines-dans-l-entreprise">Article by the French Inequality Watchdog</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>Last updated September 2026</footer>
+
+</div>
+</body>
+</html>
