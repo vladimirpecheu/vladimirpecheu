@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Vladimir Pecheu | Economics, Penn State</title>
-<meta name="description" content="Vladimir Pecheu, applied economist working on labor economics, industrial relations, inequality, and business regulation. Assistant Teaching Professor of Economics at the Pennsylvania State University.">
+<meta name="description" content="Vladimir Pecheu, labor economist and Assistant Teaching Professor of Economics at the Pennsylvania State University. Research on unions and worker representation, working time, inequality, and firm regulation. Teaching in microeconomics, international economics, and labor economics.">
 <style>
   :root {
     --paper: #FBFBFA;
@@ -126,8 +126,52 @@
     section { grid-template-columns: 13.5rem minmax(0, 42rem); }
     h2 { position: sticky; top: 1.75rem; align-self: start; }
   }
+
+  /* Research / Teaching tabs */
+  .tabs { display: flex; gap: 2.25rem; margin-top: 3.5rem; border-bottom: 1px solid var(--rule); }
+  .tab {
+    appearance: none; background: none; border: 0; border-bottom: 2px solid transparent;
+    margin: 0 0 -1px; padding: 0 0 0.7rem; cursor: pointer;
+    font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.3; letter-spacing: -0.01em;
+    color: #8A909C;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .tab:hover { color: var(--ink); border-bottom-color: #B9BEC8; }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); cursor: default; }
+  .tab:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
+  .panel > section:first-child { border-top: 0; margin-top: 2.25rem; padding-top: 0; }
+  .panel-intro { max-width: 40rem; margin: 2.25rem 0 0; }
+  .panel.is-entering { animation: panel-in 0.22s ease-out; }
+  @keyframes panel-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .desc, .plain { margin: 0.35rem 0 0; }
+  .entries > .plain:first-child { margin-top: 0; }
+  section, .part { scroll-margin-top: 1.5rem; }
+  .part { margin-top: 4.5rem; }
+  .part-title {
+    position: static; padding-bottom: 0.7rem; border-bottom: 1px solid var(--rule);
+    font-size: 1.25rem; line-height: 1.3; text-transform: none; letter-spacing: -0.01em;
+  }
+  .part .panel-intro { margin-top: 1.25rem; }
+  .jump { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; margin: 1rem 0 0; }
+
+  /* Teaching lists */
+  h2 .course { display: block; margin-top: 0.15rem; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--muted); }
+  h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin: 2rem 0 0.5rem; }
+  .entries > h3:first-child { margin-top: 0; }
+  .lead { margin: 0 0 0.6rem; color: var(--muted); }
+  .items { list-style: none; margin: 0; padding: 0; }
+  .items li { margin: 0 0 0.45rem; padding-left: 1.15rem; position: relative; }
+  .items li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 0.45rem; height: 1px; background: var(--muted); }
+  .src { color: var(--muted); font-size: 0.95rem; white-space: nowrap; }
+  .src::before { content: "· "; }
+  .cites li { color: var(--muted); }
+  .cites li a { color: var(--link); }
+  .cites em { color: var(--muted); }
+
   @media (prefers-reduced-motion: reduce) {
-    summary::before { transition: none; }
+    summary::before, .tab { transition: none; }
+    .panel.is-entering { animation: none; }
   }
 </style>
 </head>
@@ -140,175 +184,469 @@
     <h1 class="name">Vladimir Pecheu</h1>
     <p class="position">Assistant Teaching Professor of Economics<span>The Pennsylvania State University</span></p>
     <ul class="contact">
-      <li><a href="mailto:vpecheu@protonmail.ch">vpecheu@protonmail.ch</a></li>
+      <li><a href="mailto:vpecheu@psu.edu">vpecheu@psu.edu</a></li>
       <li><a href="cv.pdf" target="_blank" rel="noopener">CV</a></li>
       <li><a href="https://scholar.google.com/citations?user=FHX1BSEAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
       <li><a href="https://www.linkedin.com/in/vladimir-pecheu-81961168/" target="_blank" rel="noopener">LinkedIn</a></li>
     </ul>
-    <p class="bio">I am an applied economist working in labor economics, organizational behavior, and public policy. I hold a Ph.D. in Economics from the University of California, Los Angeles. My research covers industrial relations, inequality, and business regulation.</p>
+    <p class="bio">I am a labor economist at Penn State, where I teach introductory microeconomics, international economics, and labor economics. My research uses administrative and survey data to study unions and worker representation, working time, inequality, and how firms respond to regulation. It has been published in <em>Labour Economics</em> and the <em>Journal of Economic Behavior &amp; Organization</em>, featured on VoxEU, and covered by <em>Le Monde</em>. I hold a Ph.D. in Economics from UCLA, and before Penn State I taught at the Paris School of Economics and Paris Dauphine University.</p>
     </div>
     <div class="photo"><img src="data:image/jpeg;base64,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" alt="Portrait of Vladimir Pecheu"></div>
     </div>
   </header>
 
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button type="button" class="tab" role="tab" id="tab-research" data-tab="research" aria-controls="panel-research" aria-selected="true">Research</button>
+    <button type="button" class="tab" role="tab" id="tab-teaching" data-tab="teaching" aria-controls="panel-teaching" aria-selected="false" tabindex="-1">Teaching</button>
+  </nav>
+
   <main>
 
-    <!-- ============ PUBLISHED PAPERS ============ -->
-    <section>
-      <h2>Published papers</h2>
-      <div class="entries">
+    <div class="panel" id="panel-research" role="tabpanel" aria-labelledby="tab-research">
+      <!-- ============ PUBLISHED PAPERS ============ -->
+      <section>
+        <h2>Published papers</h2>
+        <div class="entries">
 
-        <article class="paper">
-          <p class="title">Off the Clock? Working Time Misperceptions and Labour Market Outcomes</p>
-          <p class="with">with <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html" target="_blank" rel="noopener">Thomas Breda</a> and <a href="https://baptroux.github.io/" target="_blank" rel="noopener">Baptiste Roux</a></p>
-          <p class="venue"><em>Labour Economics</em>, vol. 103, 2026</p>
-          <div class="links"><a href="https://doi.org/10.1016/j.labeco.2026.102971" target="_blank" rel="noopener">Journal version</a><a href="off-the-clock.pdf" target="_blank" rel="noopener">Working paper version</a><a href="https://www.lemonde.fr/vie-au-travail/article/2026/11/09/un-salarie-sur-trois-ignore-comment-son-temps-de-travail-est-compte_6808607_6768900.html" target="_blank" rel="noopener">Le Monde</a></div>
-          <details>
-            <summary>Abstract</summary>
-            <p>This paper documents a gap between workers’ formal working time arrangements and their own reports of them, and examines what this gap reveals about informal working time flexibility. Combining administrative and survey data at the individual level, we construct a new and unique data set which shows that nearly 20% of the workforce mistakenly report that they work under day contracts, with no monitoring of hours, while they are actually paid through a standard hours contract. This reveals that many workers with various profiles may be misinformed about the legal environment governing something as fundamental as their working time. We show that these misreporting workers differ from classic workers in terms of working conditions: they perform more unpaid overtime hours but have a higher wage rate per contractual hour, so that their true compensation per hour worked is similar. Working time rules appear not to be fully applied to misreporters, but we find no evidence that employers use the discrepancy to extract rents. Non-compliance seems to operate as an informal working time arrangement facilitating a gradual transition between standard hours contracts and day contracts.</p>
-          </details>
-        </article>
+          <article class="paper">
+            <p class="title">Off the Clock? Working Time Misperceptions and Labour Market Outcomes</p>
+            <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/breda-thomas/" target="_blank" rel="noopener">Thomas Breda</a> and <a href="https://baptroux.github.io/" target="_blank" rel="noopener">Baptiste Roux</a></p>
+            <p class="venue"><em>Labour Economics</em>, vol. 103, 2026</p>
+            <div class="links"><a href="https://doi.org/10.1016/j.labeco.2026.102971" target="_blank" rel="noopener">Journal version</a><a href="off-the-clock.pdf" target="_blank" rel="noopener">Working paper version</a><a href="https://www.lemonde.fr/vie-au-travail/article/2026/11/09/un-salarie-sur-trois-ignore-comment-son-temps-de-travail-est-compte_6808607_6768900.html" target="_blank" rel="noopener">Le Monde</a></div>
+            <details>
+              <summary>Abstract</summary>
+              <p>This paper documents a gap between workers’ formal working time arrangements and their own reports of them, and examines what this gap reveals about informal working time flexibility. Combining administrative and survey data at the individual level, we construct a new and unique data set which shows that nearly 20% of the workforce mistakenly report that they work under day contracts, with no monitoring of hours, while they are actually paid through a standard hours contract. This reveals that many workers with various profiles may be misinformed about the legal environment governing something as fundamental as their working time. We show that these misreporting workers differ from classic workers in terms of working conditions: they perform more unpaid overtime hours but have a higher wage rate per contractual hour, so that their true compensation per hour worked is similar. Working time rules appear not to be fully applied to misreporters, but we find no evidence that employers use the discrepancy to extract rents. Non-compliance seems to operate as an informal working time arrangement facilitating a gradual transition between standard hours contracts and day contracts.</p>
+            </details>
+          </article>
 
-        <article class="paper">
-          <p class="title">Does Feasibility Explain the Unequal Development of Working From Home?</p>
-          <p class="with">with <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html" target="_blank" rel="noopener">Thomas Breda</a> and <a href="https://www.ipp.eu/annuaire/paul-dutronc/" target="_blank" rel="noopener">Paul Dutronc-Postel</a></p>
-          <p class="venue"><em>Journal of Economic Behavior &amp; Organization</em>, vol. 241, 2026</p>
-          <div class="links"><a href="https://doi.org/10.1016/j.jebo.2025.107328" target="_blank" rel="noopener">Journal version</a><a href="https://shs.hal.science/halshs-04777568/file/wp202450_.pdf" target="_blank" rel="noopener">Working paper version</a></div>
-          <details>
-            <summary>Abstract</summary>
-            <p>Using rich historical surveys on job tasks and advanced machine learning techniques, we study which jobs can be moved from the office to home over three decades in France. The share of jobs that can be done from home has increased steadily from 14% in 1991 to 45% in 2021. At the same time, actual Working From Home (WFH) remained limited to less than one fifth of its full potential before the Covid-19 crisis and is still below it in 2021. The growth of WFH is largely unrelated to the evolution of job tasks, implying that the main obstacles to WFH have not been technical constraints. Low-skilled employees in particular have jobs that have long been largely teleworkable but they were barely teleworking before the Covid-19 crisis and remained still below 50% of their full potential during it. This pattern is not explained by differences in workers’ desire to telework. It implies that the well-known large inequality in access to WFH along the earnings distribution cannot be attributed only to feasibility constraints and is potentially inefficient.</p>
-          </details>
-        </article>
+          <article class="paper">
+            <p class="title">Does Feasibility Explain the Unequal Development of Working From Home?</p>
+            <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/breda-thomas/" target="_blank" rel="noopener">Thomas Breda</a> and <a href="https://www.ipp.eu/annuaire/paul-dutronc/" target="_blank" rel="noopener">Paul Dutronc-Postel</a></p>
+            <p class="venue"><em>Journal of Economic Behavior &amp; Organization</em>, vol. 241, 2026</p>
+            <div class="links"><a href="https://doi.org/10.1016/j.jebo.2025.107328" target="_blank" rel="noopener">Journal version</a><a href="https://shs.hal.science/halshs-04777568/file/wp202450_.pdf" target="_blank" rel="noopener">Working paper version</a></div>
+            <details>
+              <summary>Abstract</summary>
+              <p>Using rich historical surveys on job tasks and advanced machine learning techniques, we study which jobs can be moved from the office to home over three decades in France. The share of jobs that can be done from home has increased steadily from 14% in 1991 to 45% in 2021. At the same time, actual Working From Home (WFH) remained limited to less than one fifth of its full potential before the Covid-19 crisis and is still below it in 2021. The growth of WFH is largely unrelated to the evolution of job tasks, implying that the main obstacles to WFH have not been technical constraints. Low-skilled employees in particular have jobs that have long been largely teleworkable but they were barely teleworking before the Covid-19 crisis and remained still below 50% of their full potential during it. This pattern is not explained by differences in workers’ desire to telework. It implies that the well-known large inequality in access to WFH along the earnings distribution cannot be attributed only to feasibility constraints and is potentially inefficient.</p>
+            </details>
+          </article>
 
+        </div>
+      </section>
+
+      <!-- ============ WORKING PAPERS ============ -->
+      <section>
+        <h2>Working papers</h2>
+        <div class="entries">
+
+          <article class="paper">
+            <p class="title">Labor Facing Capital in the Workplace: The Role of Worker Representatives <span class="status">(Reject and Resubmit, <em>Economic Journal</em>)</span></p>
+            <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/bourdieu-jerome/" target="_blank" rel="noopener">Jérôme Bourdieu</a> and <a href="https://www.parisschoolofeconomics.eu/en/breda-thomas/" target="_blank" rel="noopener">Thomas Breda</a></p>
+            <div class="links"><a href="worker-representatives.pdf" target="_blank" rel="noopener">Paper (September 2026)</a><a href="https://www.lemonde.fr/economie/article/2023/12/07/les-procedures-contre-des-delegues-syndicaux-se-multiplient-entre-convocations-a-la-gendarmerie-poursuites-en-justice-et-licenciements_6204380_3234.html" target="_blank" rel="noopener">Le Monde</a></div>
+            <details>
+              <summary>Abstract</summary>
+              <p>The paper studies how the personal career of union (or worker) representatives is tied to the conditions in which revenues are shared between labor and capital at the firm level. We argue that employers can have a strategic interest in either favoring or discriminating against union representatives in order to lower workers’ bargaining power. The behavior of union representatives during firm negotiations and the stake of those negotiations influence employers’ willingness to use one or the other of those strategies. We formalize this mechanism with a model that rationalizes three core empirical facts and generates additional predictions on union support, rent sharing, and firm size. Using a rich survey for France in 2017 combined with administrative data on earnings and firm performance, we first document that union delegates experience worse career outcomes than comparable coworkers, that these gaps are related to their bargaining behavior, and that they are associated with coworkers’ fear of joining unions. We then provide additional evidence consistent with the model’s predictions on union support, surplus sharing, and firm size. Together, the results suggest that employers’ capacity to affect representatives’ careers can impair the quality of workers’ representation and workers’ ability to organize collectively.</p>
+            </details>
+          </article>
+
+          <article class="paper">
+            <p class="title">Profit Sharing as a Bargaining Weapon Against Unions</p>
+            <div class="links"><a href="https://shs.hal.science/halshs-03247551/document" target="_blank" rel="noopener">Paper</a></div>
+            <details>
+              <summary>Abstract</summary>
+              <p>I show that one reason why employers use profit sharing is to weaken their unions and increase their share of the surplus. I develop a model in which, by making compensation depend on output, profit sharing weakens unions’ ability to motivate employees to strike. Unions lose reputation for being strong, which further reduces their bargaining power. Using plausibly exogenous variation in the aggressiveness of unions, I show that employers anticipate this increased threat by making greater use of profit sharing. Profit-sharing payments shorten strikes and reduce wage growth by 13%. The effect is concentrated among workers in lower-paid occupations, whose wage growth is almost halved.</p>
+            </details>
+          </article>
+
+          <article class="paper">
+            <p class="title">Union Ideology and Worker and Firm Outcomes</p>
+            <p class="with">with <a href="https://jaeger.scholar.princeton.edu" target="_blank" rel="noopener">Simon Jäger</a> and <a href="https://www.parisschoolofeconomics.eu/en/breda-thomas/" target="_blank" rel="noopener">Thomas Breda</a></p>
+            <div class="links"><a href="union-ideology.pdf" target="_blank" rel="noopener">Paper</a></div>
+            <details>
+              <summary>Abstract</summary>
+              <p>Labor unions across the world differ markedly in their ideology, ranging from radical unions with an anti-capitalist ideology to cooperative reformists. To understand the effect of union ideology on worker outcomes, we study France’s institutional setting, where unions with sharply contrasting ideologies compete in workplace elections for collective bargaining rights. Workers and firms sort systematically by union ideology: low-wage workers and less productive establishments are more likely to be represented by radical unions, high-wage workers and more productive establishments tend to be represented by reformist unions. Conditional on establishment and worker effects, radical unions are associated with wage penalties, reformist unions with wage premia for workers (concentrated among white-collar workers). As an additional source of sharp variation in union representation, we focus on close establishment-level elections that determine which unions represent workers. Although close elections reveal no significant average wage effects, radical unions significantly reduce blue-collar worker exit rates relative to reformist unions. To understand the mechanisms underlying our results, we study bargaining behavior and find that electing a radical union leads to more strikes and more refusal to sign bargaining agreements compared to electing a reformist union. Radical unions appear to successfully protect blue-collar employment, but their confrontational approach does not yield wage gains for workers.</p>
+            </details>
+          </article>
+
+          <article class="paper">
+            <p class="title">Dynamics of the Gender Gap in Lifetime Earnings in France</p>
+            <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home" target="_blank" rel="noopener">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa" target="_blank" rel="noopener">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac" target="_blank" rel="noopener">Frédérique Savignac</a></p>
+            <div class="links"><a href="lifetime-earnings.pdf" target="_blank" rel="noopener">Paper</a><a href="https://cepr.org/voxeu/columns/trends-and-inequality-lifetime-earnings-france" target="_blank" rel="noopener">VoxEU</a></div>
+            <details>
+              <summary>Abstract</summary>
+              <p>This paper is the first to compute lifetime earnings (LTE) in France for a large number of cohorts that entered the labour market between 1967 and 1987. We analyze the trends across cohorts and gender, and document sharp differences with the United States, based on results in Guvenen et al. (2022). Median LTE show similar flat trends in both countries, but in France this results from a moderate increase for both genders together with increased female participation, while in the U.S., LTE declines for men and sharply grows for women. Most notably, we find that the gender LTE gap has been significantly larger in the U.S. than in France. Differences in working time explain an increasing share of the gender gap in LTE across successive cohorts, as the rise in women’s working years was primarily through part-time employment. Additionally, lower promotion opportunities for women account for a progressively larger share of the gender gap as we move up the distribution of earnings.</p>
+            </details>
+          </article>
+
+          <article class="paper">
+            <p class="title">Under-Reporting of Firm Size Around Size-Dependent Regulation Thresholds</p>
+            <p class="with">with <a href="https://www.cmh.ens.fr/en/author/philippe-askenazy/" target="_blank" rel="noopener">Philippe Askenazy</a> and <a href="https://www.parisschoolofeconomics.eu/en/breda-thomas/" target="_blank" rel="noopener">Thomas Breda</a></p>
+            <div class="links"><a href="https://halshs.archives-ouvertes.fr/halshs-03614750/document" target="_blank" rel="noopener">Paper</a></div>
+            <details>
+              <summary>Abstract</summary>
+              <p>The existence of a peak at 49 employees in the firm size distribution in France, followed by a permanent decrease in the number of firms, has been the starting point of political discourses and academic studies on the cost of size-dependent regulations at the 50-employee threshold. These features of the distribution are visible when firm size is declared by employers in fiscal data but not when it is reconstructed from individual-level social security data. This working paper explores these differences both from statistical and institutional viewpoints. It provides evidence showing that a large proportion of employers manipulate the firm size they declare in their fiscal documents. This manipulation generates the particular shape of the size distribution in the fiscal data. We discuss the rationale for such behavior: the key point is that the under-declaration in fiscal data is not subject to substantial sanctions and it can allow firms not to comply with the labor law. Event studies and comparisons of firms below and above the 50-employee threshold suggest that this threshold may only have limited effects on firm performance or growth potential. Consequently, the welfare costs of the regulations at the 50-employee threshold might be smaller than what was found by some of the studies that assume a perfect compliance with the law.</p>
+            </details>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ WORK IN PROGRESS ============ -->
+      <section class="wip">
+        <h2>Work in progress</h2>
+        <div class="entries">
+
+          <article class="paper">
+            <p class="title">Spatial Competition and Market Power in Regional Markets</p>
+            <p class="with">with <a href="https://economics.ucla.edu/person/maurizio-mazzocco" target="_blank" rel="noopener">Maurizio Mazzocco</a></p>
+          </article>
+
+          <article class="paper">
+            <p class="title">The Energy Saving Effects of Working from Home</p>
+            <p class="with">with <a href="https://www.ipp.eu/annuaire/paul-dutronc/" target="_blank" rel="noopener">Paul Dutronc-Postel</a></p>
+          </article>
+
+          <article class="paper">
+            <p class="title">Earnings Mobility in France in Comparison with the United States</p>
+            <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home" target="_blank" rel="noopener">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa" target="_blank" rel="noopener">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac" target="_blank" rel="noopener">Frédérique Savignac</a></p>
+          </article>
+
+          <article class="paper">
+            <p class="title">Hardship at Work and Retirement Age Policies</p>
+          </article>
+
+          <article class="paper">
+            <p class="title">The Responsiveness of Profit Sharing to Tax Incentives</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ POLICY REPORTS ============ -->
+      <section>
+        <h2>Policy reports</h2>
+        <div class="entries">
+
+          <article class="paper">
+            <p class="title">Trends and Inequality in Lifetime Earnings in France</p>
+            <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home" target="_blank" rel="noopener">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa" target="_blank" rel="noopener">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac" target="_blank" rel="noopener">Frédérique Savignac</a></p>
+            <div class="links"><a href="https://cepr.org/voxeu/columns/trends-and-inequality-lifetime-earnings-france" target="_blank" rel="noopener">VoxEU column</a></div>
+          </article>
+
+          <article class="paper">
+            <p class="title">Are Companies Under-Reporting Their Headcount at 49 Employees to Avoid Regulations?</p>
+            <p class="translation" lang="fr">Les entreprises sous-déclarent-elles leur effectif à 49 salariés pour contourner la loi ?</p>
+            <p class="with">with <a href="https://www.cmh.ens.fr/en/author/philippe-askenazy/" target="_blank" rel="noopener">Philippe Askenazy</a> and <a href="https://www.parisschoolofeconomics.eu/en/breda-thomas/" target="_blank" rel="noopener">Thomas Breda</a></p>
+            <p class="venue">Policy Brief, Institut des Politiques Publiques, 2022</p>
+            <div class="links"><a href="https://www.ipp.eu/wp-content/uploads/2022/03/note_seuils_sociaux_admin.pdf" target="_blank" rel="noopener">Policy brief</a></div>
+          </article>
+
+          <article class="paper">
+            <p class="title">Studying Employee Representatives to Better Understand Industrial Relations and the Split of the Value Added</p>
+            <p class="translation" lang="fr">Étudier les représentants du personnel pour mieux comprendre les relations de travail et les conditions du partage de la valeur ajoutée</p>
+            <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/bourdieu-jerome/" target="_blank" rel="noopener">Jérôme Bourdieu</a> and <a href="https://www.parisschoolofeconomics.eu/en/breda-thomas/" target="_blank" rel="noopener">Thomas Breda</a></p>
+            <p class="venue">Report for the French Ministry of Labor (DARES), 2021</p>
+            <div class="links">
+              <a href="https://dares.travail-emploi.gouv.fr/publication/etudier-les-representants-du-personnel-pour-mieux-comprendre-les-relations-de-travail" target="_blank" rel="noopener">Report</a>
+              <a href="lamy-interview.pdf" target="_blank" rel="noopener">Interview for <em>Semaine Sociale Lamy</em></a>
+              <a href="https://www.inegalites.fr/Les-representants-syndicaux-sont-discrimines-dans-l-entreprise" target="_blank" rel="noopener">Article by the Observatoire des inégalités</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============ POLICY ENGAGEMENT AND MEDIA ============ -->
+      <section>
+        <h2>Policy engagement and media</h2>
+        <div class="entries">
+          <ul class="items">
+            <li>Hearing before the French Senate’s Business Committee, 2023</li>
+            <li>Presentation to the executives of the Force Ouvrière union, 2023</li>
+            <li>Interviewed by Reuters, TSF Jazz radio, and the <em>Liaisons Sociales</em> law review</li>
+            <li>Research cited by <em>Le Monde</em>, France Culture and France Inter radio, <em>L’Express</em>, BFMTV, and <em>20&nbsp;Minutes</em></li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="panel" id="panel-teaching" role="tabpanel" aria-labelledby="tab-teaching" hidden>
+
+      <!-- ============ COURSES ============ -->
+      <section id="courses">
+        <h2>Courses</h2>
+        <div class="entries">
+
+          <article class="paper">
+            <p class="title">ECON 102: Introductory Microeconomic Analysis and Policy</p>
+            <p class="venue">General Education course, in person, since Fall 2025</p>
+            <p class="desc">Will a pricier latte make your coffee shop more money? Why is internet cheaper in France than in the US? How did allowances to pollute stop acid rain in the 1990s? This course answers these questions by analyzing how individuals interact in markets.</p>
+          </article>
+
+          <article class="paper">
+            <p class="title">ECON 333: International Economics</p>
+            <p class="venue">Upper-level course, in person, since Fall 2025</p>
+            <p class="desc">Why has the US run a trade deficit since the 1970s? Why does China control rare earths and the US advanced chips? Models of trade and finance answer these questions and frame the history and politics of trade policy, from Smoot-Hawley to the IEEPA tariffs.</p>
+          </article>
+
+          <article class="paper">
+            <p class="title">ECON 315: Labor Economics</p>
+            <p class="venue">Upper-level course, online (World Campus), since Fall 2025</p>
+            <p class="desc">Does a higher minimum wage destroy or create jobs? Do graduates earn more because of what they learned? Why do big firms pay more for the same work? Models of labor supply, labor demand, and human capital, plus minimum wage evidence, answer them.</p>
+          </article>
+
+          <!-- Room for evidence: student evaluation results (e.g. "ECON 102, Fall 2025: x.x/7 overall, n responses") and one or two short student quotes. -->
+
+        </div>
+      </section>
+
+      <!-- ============ RESOURCES FOR STUDENTS ============ -->
+      <div class="part" id="resources">
+        <h2 class="part-title">Resources for Students</h2>
+        <p class="panel-intro">Videos and articles I share with students in my courses at Penn State, grouped by course and topic, followed by a selection on how to prepare for a career in a world with AI. Penn State students can read the <em>New York Times</em> and the <em>Wall Street Journal</em> for free through the <a href="https://studentaffairs.psu.edu/student-services/student-news-readership-program" target="_blank" rel="noopener">Student News Readership Program</a>.</p>
+        <nav class="jump" aria-label="Resources by course"><a href="#econ-102">ECON 102</a><a href="#econ-333">ECON 333</a><a href="#econ-315">ECON 315</a><a href="#ai-careers">Careers and AI</a></nav>
       </div>
-    </section>
 
-    <!-- ============ WORKING PAPERS ============ -->
-    <section>
-      <h2>Working papers</h2>
-      <div class="entries">
+      <!-- ============ ECON 102 ============ -->
+      <section id="econ-102">
+        <h2>ECON 102<span class="course">Introductory Microeconomic Analysis and Policy</span></h2>
+        <div class="entries">
 
-        <article class="paper">
-          <p class="title">Labor Facing Capital in the Workplace: The Role of Worker Representatives <span class="status">(Reject and Resubmit, <em>Economic Journal</em>)</span></p>
-          <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/bourdieu-jerome/" target="_blank" rel="noopener">Jérôme Bourdieu</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html" target="_blank" rel="noopener">Thomas Breda</a></p>
-          <div class="links"><a href="worker-representatives.pdf" target="_blank" rel="noopener">Paper</a><a href="https://www.lemonde.fr/economie/article/2023/12/07/les-procedures-contre-des-delegues-syndicaux-se-multiplient-entre-convocations-a-la-gendarmerie-poursuites-en-justice-et-licenciements_6204380_3234.html" target="_blank" rel="noopener">Le Monde</a></div>
-          <details>
-            <summary>Abstract</summary>
-            <p>The paper studies how the personal career of union (or worker) representatives is tied to the conditions in which revenues are shared between labor and capital at the firm-level. We argue that employers can have a strategic interest in either favoring or discriminating against union representatives in order to lower workers’ bargaining power. The first strategy (favoritism) amounts to “buying the social peace” and can only be implemented with willing representatives. The second (discrimination) is a way to stigmatize vindictive representatives and curb their demands, notably by discouraging other workers to join the union. The behavior of union representatives during firm negotiations and the stake of those negotiations influence employers’ willingness to use one or the other of those strategies. We formalize this theory with a model and provide evidence to support it using a rich survey for France in 2017 combined with administrative data on earnings and firm performance. Union representatives that are the most active during their mandate or represent the most campaigning unions have worse career outcomes, while those that do not participate in strikes experience a wage premium. Workers are in turn more likely to think that joining a union will negatively affect their career in firms where union representatives are paid less than their colleagues or feel discriminated against. Together, these results show that employers’ capacity to affect representatives’ careers can impair the quality of workers’ representation and workers’ ability to organize collectively in order to take part in the firm decision-making process.</p>
-          </details>
-        </article>
+          <h3>Markets and the Invisible Hand</h3>
+          <ul class="items">
+            <li><a href="https://youtu.be/2p5Hr_Dd6Ps" target="_blank" rel="noopener">Adam Smith</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.youtube.com/watch?v=4FHxpoQqPTU&amp;t=16s" target="_blank" rel="noopener">Milton Friedman on the invisible hand</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.youtube.com/watch?v=67tHtpac5ws" target="_blank" rel="noopener">Milton Friedman: I, Pencil</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/Cw3V2x5u54Y" target="_blank" rel="noopener">Apple’s supply chain</a> <span class="src">YouTube</span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Union Ideology and Worker and Firm Outcomes</p>
-          <p class="with">with <a href="https://economics.mit.edu/people/faculty/simon-jager" target="_blank" rel="noopener">Simon Jäger</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html" target="_blank" rel="noopener">Thomas Breda</a></p>
-          <div class="links"><a href="union-ideology.pdf" target="_blank" rel="noopener">Paper</a></div>
-          <details>
-            <summary>Abstract</summary>
-            <p>Labor unions across the world differ markedly in their ideology, ranging from radical unions with an anti-capitalist ideology to cooperative reformists. To understand the effect of union ideology on worker outcomes, we study France’s institutional setting, where unions with sharply contrasting ideologies compete in workplace elections for collective bargaining rights. Workers and firms sort systematically by union ideology: low-wage workers and less productive establishments are more likely to be represented by radical unions, high-wage workers and more productive establishments tend to be represented by reformist unions. Conditional on establishment and worker effects, radical unions are associated with wage penalties, reformist unions with wage premia for workers (concentrated among white-collar workers). As an additional source of sharp variation in union representation, we focus on close establishment-level elections that determine which unions represent workers. Although close elections reveal no significant average wage effects, radical unions significantly reduce blue-collar worker exit rates relative to reformist unions. To understand the mechanisms underlying our results, we study bargaining behavior and find that electing a radical union leads to more strikes and more refusal to sign bargaining agreements compared to electing a reformist union. Radical unions appear to successfully protect blue-collar employment, but their confrontational approach does not yield wage gains for workers.</p>
-          </details>
-        </article>
+          <h3>Externalities and the Environment</h3>
+          <ul class="items">
+            <li><a href="https://youtu.be/Cw3V2x5u54Y?t=99" target="_blank" rel="noopener">Pollution in Apple’s supply chain</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/prrq8Ql81zk" target="_blank" rel="noopener">Sulfur dioxide and acid rain</a> <span class="src">YouTube</span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Dynamics of the Gender Gap in Lifetime Earnings in France</p>
-          <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home" target="_blank" rel="noopener">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa" target="_blank" rel="noopener">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac" target="_blank" rel="noopener">Frédérique Savignac</a></p>
-          <div class="links"><a href="lifetime-earnings.pdf" target="_blank" rel="noopener">Paper</a><a href="https://cepr.org/voxeu/columns/trends-and-inequality-lifetime-earnings-france" target="_blank" rel="noopener">VoxEU</a></div>
-          <details>
-            <summary>Abstract</summary>
-            <p>This paper is the first to compute lifetime earnings (LTE) in France for a large number of cohorts, that entered the labour market between 1967 and 1987. We analyze the trends across cohorts and gender, and document sharp differences with the United States, based on results in Guvenen et al. (2022). Median LTE show similar flat trends in both countries, but in France this results from a moderate increase for both genders together with increased female participation, while in the U.S., LTE declines for men and sharply grows for women. Most notably, we find that the gender LTE gap has been significantly larger in the U.S. than in France. Differences in working time explain an increasing share of the gender gap in LTE across successive cohorts, as the rise in women’s working years was primarily through part-time employment. Additionally, lower promotion opportunities for women account for a progressively larger share of the gender gap as we move up the distribution of earnings.</p>
-          </details>
-        </article>
+          <h3>Policy and Institutions</h3>
+          <ul class="items">
+          <li><a href="https://youtu.be/JV5VtyBDLDg" target="_blank" rel="noopener">Why Fed independence matters</a> <span class="src">YouTube</span></li>
+          <li><a href="https://www.wsj.com/video/series/on-the-news/wsj-editor-breaks-down-the-key-takeaways-from-the-supreme-courts-tariff-ruling/88C7FCC6-E3F4-41D2-8A5E-9574F2916953" target="_blank" rel="noopener">Key takeaways from the Supreme Court’s tariff ruling</a> <span class="src"><em>Wall Street Journal</em></span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Under-Reporting of Firm Size Around Size-Dependent Regulation Thresholds</p>
-          <p class="with">with <a href="https://www.cmh.ens.fr/en/author/philippe-askenazy/" target="_blank" rel="noopener">Philippe Askenazy</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html" target="_blank" rel="noopener">Thomas Breda</a></p>
-          <div class="links"><a href="https://halshs.archives-ouvertes.fr/halshs-03614750/document" target="_blank" rel="noopener">Paper</a></div>
-          <details>
-            <summary>Abstract</summary>
-            <p>The existence of a peak at 49 employees in the firm size distribution in France, followed by a permanent decrease in the number of firms has been the starting point of political discourses and academic studies on the cost of size-dependent regulations at 50-employee. These features of the distribution are visible when firm size is declared by employers in fiscal data but not when it is reconstructed from individual-level social security data. This working paper explores these differences both from statistical and institutional viewpoints. It provides evidence showing that a large proportion of employers manipulate the firm size they declare in their fiscal documents. This manipulation generates the particular shape of the size distribution in the fiscal data. We discuss the rationale for such behavior: the key point is that the under-declaration in fiscal data is not subject to substantial sanctions and it can allow firms not to comply with the labor law. Event studies and comparisons of firms below and above the 50-employee threshold suggest that this threshold may only have limited effects on firm performance or growth potential. Consequently the welfare costs of the regulations at 50-employee might be smaller than what was found by some of the studies that assume a perfect compliance with the law.</p>
-          </details>
-        </article>
+          <h3>The Stock Market</h3>
+          <ul class="items">
+            <li><a href="https://www.youtube.com/watch?v=oLDcbkEqi-M" target="_blank" rel="noopener">Why the AI boom might be a bubble</a> <span class="src">YouTube</span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Profit Sharing as a Bargaining Weapon Against Unions</p>
-          <div class="links"><a href="https://shs.hal.science/halshs-03247551/document" target="_blank" rel="noopener">Paper</a></div>
-          <details>
-            <summary>Abstract</summary>
-            <p>I show that one reason why employers use profit sharing is to weaken their unions and increase their share of the surplus. I develop a model where by making compensation dependent on output, profit sharing weakens unions’ ability to motivate employees to strike. Unions lose reputation for being strong, which further reduces their bargaining power. Resorting to plausibly exogenous variation in the aggressiveness of unions, I show that employers anticipate this increased threat by a larger usage of profit sharing. Its payment leads to a reduction in strike length, and to a drop in wage growth of 13%. The effect is concentrated on lower occupations for whom growth is almost halved.</p>
-          </details>
-        </article>
+        </div>
+      </section>
 
-      </div>
-    </section>
+      <!-- ============ ECON 333 ============ -->
+      <section id="econ-333">
+        <h2>ECON 333<span class="course">International Economics</span></h2>
+        <div class="entries">
 
-    <!-- ============ WORK IN PROGRESS ============ -->
-    <section class="wip">
-      <h2>Work in progress</h2>
-      <div class="entries">
+          <h3>Turning Points in US Trade Policy</h3>
+          <ul class="items">
+            <li><a href="https://youtu.be/Lnz7Ze71Pc0" target="_blank" rel="noopener">Nixon in China, 1972</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/SbjA-GZtmKk?t=108" target="_blank" rel="noopener">Carter’s greatest achievement</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/Foggkeiwlp0?t=69" target="_blank" rel="noopener">Ronald Reagan, 1987: interconnectedness for prosperity</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/hWlHQ9Q1ojs?t=264" target="_blank" rel="noopener">Ronald Reagan, 1987: manufacturing and trade deals</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/_w3-YMBcb_M?t=32" target="_blank" rel="noopener">George H. W. Bush on NAFTA</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/4lXH4CLfoh0?t=358" target="_blank" rel="noopener">Bill Clinton on NAFTA</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/ClbizMqdh9I?t=15" target="_blank" rel="noopener">US presidents on the US–China Relations Act, 2000</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.youtube.com/live/dE981Z_TaVo?t=389" target="_blank" rel="noopener">Mark Carney at Davos, 2026: the end of integration?</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/zH_nawyUp88?t=450" target="_blank" rel="noopener">Lessons from US trade history</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.pbs.org/wgbh/americanexperience/features/presidents-kissingerhe-served-directly-under-two-presidents-and-advised-ten-others/" target="_blank" rel="noopener">The presidents and Henry Kissinger</a> <span class="src">PBS American Experience</span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Spatial Competition and Market Power in Regional Markets</p>
-          <p class="with">with <a href="http://www.econ.ucla.edu/mazzocco/" target="_blank" rel="noopener">Maurizio Mazzocco</a></p>
-        </article>
+          <h3>Global Supply Chains</h3>
+          <ul class="items">
+            <li><a href="https://www.youtube.com/watch?v=jLpUEACVBlE" target="_blank" rel="noopener">Where the parts of a Ford F-150 come from</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/zmIczg6a0WQ?t=181" target="_blank" rel="noopener">McDonald’s in France vs. the USA</a> <span class="src">YouTube</span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">The Energy Saving Effects of Working from Home</p>
-          <p class="with">with <a href="https://www.ipp.eu/annuaire/paul-dutronc/" target="_blank" rel="noopener">Paul Dutronc-Postel</a></p>
-        </article>
+          <h3>Trade Theory</h3>
+          <ul class="items">
+            <li><a href="https://cepr.org/voxeu/columns/ricardo-and-comparative-advantage-200" target="_blank" rel="noopener">Ricardo and comparative advantage at 200</a> <span class="src">VoxEU</span></li>
+            <li><a href="https://web.mit.edu/krugman/www/ricardo.htm" target="_blank" rel="noopener">Paul Krugman: Ricardo’s difficult idea</a> <span class="src">Essay</span></li>
+            <li><a href="https://www.youtube.com/watch?v=fb6-PIM0NtQ" target="_blank" rel="noopener">Paul Krugman on New Trade Theory</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/yU3GUHDf0mk?t=289" target="_blank" rel="noopener">Jensen Huang on market size and product differentiation</a> <span class="src">YouTube</span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Earnings Mobility in France in Comparison with the United States</p>
-          <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home" target="_blank" rel="noopener">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa" target="_blank" rel="noopener">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac" target="_blank" rel="noopener">Frédérique Savignac</a></p>
-        </article>
+          <h3>Tariffs</h3>
+          <ul class="items">
+            <li><a href="https://www.youtube.com/watch?v=_-eHOSq3oqI" target="_blank" rel="noopener">Why economists hate tariffs</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/TJYqvK_oVN8" target="_blank" rel="noopener">Paul Krugman on tariffs</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/rGafYjEqWWs" target="_blank" rel="noopener">Douglas Irwin (Dartmouth) on the 2025 tariffs</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.youtube.com/watch?v=KFKpVuWoQLU" target="_blank" rel="noopener">How US companies are mitigating tariffs</a> <span class="src">YouTube</span> (foreign trade zones from <a href="https://youtu.be/KFKpVuWoQLU?t=120" target="_blank" rel="noopener">2:00</a>)</li>
+            <li><a href="https://www.youtube.com/watch?v=tXCyKWbT5hQ" target="_blank" rel="noopener">Tariffs and product design</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/7mTF8AodJjI" target="_blank" rel="noopener">Rules of origin</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.youtube.com/watch?v=RXXjJbMAs6s" target="_blank" rel="noopener">Tariffs backfire on textile exporters</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.youtube.com/watch?v=w2HBhjcAtLM" target="_blank" rel="noopener">Tariffs are raking in billions</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.wsj.com/politics/policy/u-s-will-cut-tariffs-on-india-to-18-in-trade-deal-trump-says-6045d0f3" target="_blank" rel="noopener">US will cut tariffs on India to 18% in trade deal</a> <span class="src"><em>Wall Street Journal</em></span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Occupational Hardship and Health Inequalities Driven by Pension Policy</p>
-        </article>
+          <h3>Chips, Rare Earths and Strategic Industries</h3>
+          <ul class="items">
+            <li><a href="https://youtu.be/4oQoZF_KRCc" target="_blank" rel="noopener">How Intel manufactures chips</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/CPmMfasVxbY" target="_blank" rel="noopener">A 360° tour of a chip fab</a> <span class="src">YouTube</span></li>
+            <li>Chris Miller, author of <em>Chip War</em>, on Nvidia: <a href="https://youtu.be/8Yo_bhSC_j8?t=100" target="_blank" rel="noopener">interview 1</a>, <a href="https://youtu.be/o762pOYyHgE" target="_blank" rel="noopener">interview 2</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.youtube.com/watch?v=vq4eRtwFjIc" target="_blank" rel="noopener">Rare earths</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.wsj.com/economy/trade/u-s-enlists-mexico-eu-and-japan-in-its-minerals-race-with-china-e1f77221" target="_blank" rel="noopener">US enlists Mexico, the EU and Japan in its minerals race with China</a> <span class="src"><em>Wall Street Journal</em></span></li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">The Tax Elasticity of Profit Sharing in France</p>
-        </article>
+          <h3>Debt, Deficits and the Dollar</h3>
+          <ul class="items">
+            <li><a href="https://youtu.be/qIBWMKhsBuI" target="_blank" rel="noopener">Jerome Powell on the US debt</a> <span class="src">YouTube</span></li>
+            <li><a href="https://www.wsj.com/economy/u-s-debt-just-topped-40-trillion-how-we-got-here-c1c6c9d2" target="_blank" rel="noopener">US debt just topped $40 trillion: how we got here</a> <span class="src"><em>Wall Street Journal</em></span></li>
+            <li><a href="https://www.caixabankresearch.com/en/economics-markets/financial-markets/appreciation-dollar-and-american-and-european-interest-rates" target="_blank" rel="noopener">The dollar’s appreciation and American and European interest rates</a> <span class="src">CaixaBank Research</span></li>
+          </ul>
 
-      </div>
-    </section>
+          <h3>Research Papers We Study in Class</h3>
+          <ul class="items cites">
+            <li>Blanchet, T., Chancel, L. and Gethin, A. (2019). <a href="https://wid.world/document/bcg2019-full-paper" target="_blank" rel="noopener">How Unequal Is Europe? Evidence from Distributional National Accounts, 1980–2017</a>. World Inequality Lab Working Paper.</li>
+            <li>Congressional Research Service (2021). <a href="https://www.congress.gov/crs-product/R44705" target="_blank" rel="noopener">The U.S. Income Distribution: Trends and Issues</a>. Report R44705.</li>
+            <li>Autor, D. H., Dorn, D. and Hanson, G. H. (2013). <a href="https://doi.org/10.1257/aer.103.6.2121" target="_blank" rel="noopener">The China Syndrome: Local Labor Market Effects of Import Competition in the United States</a>. <em>American Economic Review</em> 103(6): 2121–2168.</li>
+            <li>Choi, J., Kuziemko, I., Washington, E. and Wright, G. (2024). <a href="https://doi.org/10.1257/aer.20220425" target="_blank" rel="noopener">Local Economic and Political Effects of Trade Deals: Evidence from NAFTA</a>. <em>American Economic Review</em> 114(6): 1540–1575.</li>
+            <li>Pierce, J. R. and Schott, P. K. (2020). <a href="https://doi.org/10.1257/aeri.20180396" target="_blank" rel="noopener">Trade Liberalization and Mortality: Evidence from US Counties</a>. <em>American Economic Review: Insights</em> 2(1): 47–64.</li>
+            <li>Autor, D. H. (2014). <a href="https://doi.org/10.1126/science.1251868" target="_blank" rel="noopener">Skills, Education, and the Rise of Earnings Inequality Among the “Other 99 Percent”</a>. <em>Science</em> 344: 843–851.</li>
+            <li>Autor, D. H. and Dorn, D. (2013). <a href="https://doi.org/10.1257/aer.103.5.1553" target="_blank" rel="noopener">The Growth of Low-Skill Service Jobs and the Polarization of the US Labor Market</a>. <em>American Economic Review</em> 103(5): 1553–1597.</li>
+            <li>Fajgelbaum, P. D., Goldberg, P. K., Kennedy, P. J. and Khandelwal, A. K. (2020). <a href="https://www.nber.org/papers/w25638" target="_blank" rel="noopener">The Return to Protectionism</a>. <em>Quarterly Journal of Economics</em> 135(1): 1–55.</li>
+            <li>Borusyak, K. and Jaravel, X. (2021). <a href="https://www.nber.org/papers/w28957" target="_blank" rel="noopener">The Distributional Effects of Trade: Theory and Evidence from the United States</a>. NBER Working Paper 28957.</li>
+          </ul>
 
-    <!-- ============ POLICY REPORTS ============ -->
-    <section>
-      <h2>Policy reports</h2>
-      <div class="entries">
+        </div>
+      </section>
 
-        <article class="paper">
-          <p class="title">Trends and Inequality in Lifetime Earnings in France</p>
-          <p class="with">with <a href="https://sites.google.com/view/bertrandgarbinti/home" target="_blank" rel="noopener">Bertrand Garbinti</a>, <a href="https://sites.google.com/view/ceciliagarciapenalosa" target="_blank" rel="noopener">Cecilia García-Peñalosa</a>, and <a href="https://www.banque-france.fr/en/frederique-savignac" target="_blank" rel="noopener">Frédérique Savignac</a></p>
-          <div class="links"><a href="https://cepr.org/voxeu/columns/trends-and-inequality-lifetime-earnings-france" target="_blank" rel="noopener">VoxEU column</a></div>
-        </article>
+      <!-- ============ ECON 315 ============ -->
+      <section id="econ-315">
+        <h2>ECON 315<span class="course">Labor Economics</span></h2>
+        <div class="entries">
+          <p class="lead">The <a href="https://www.nber.org/digest" target="_blank" rel="noopener">NBER Digest</a> is an easy way to follow frontier research in economics.</p>
 
-        <article class="paper">
-          <p class="title">Are Companies Under-reporting Their Headcount at 49 Employees to Avoid Regulations?</p>
-          <p class="translation" lang="fr">Les entreprises sous-déclarent-elles leur effectif à 49 salariés pour contourner la loi ?</p>
-          <p class="with">with <a href="http://www.jourdan.ens.fr/~askenazy/" target="_blank" rel="noopener">Philippe Askenazy</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html" target="_blank" rel="noopener">Thomas Breda</a></p>
-          <p class="venue">Policy Brief, Institut des Politiques Publiques, 2022</p>
-          <div class="links"><a href="https://www.ipp.eu/wp-content/uploads/2022/03/note_seuils_sociaux_admin.pdf" target="_blank" rel="noopener">Policy brief</a></div>
-        </article>
+          <h3>Labor Demand</h3>
+          <ul class="items">
+            <li><a href="https://www.nber.org/digest/may17/robots-and-jobs-us-labor-market" target="_blank" rel="noopener">Robots and jobs in the US labor market</a> <span class="src">NBER Digest</span></li>
+          </ul>
+          <ul class="items cites">
+            <li>Hampole, M., Papanikolaou, D., Schmidt, L. D. W. and Seegmiller, B. (2025). <a href="https://www.nber.org/papers/w33509" target="_blank" rel="noopener">Artificial Intelligence and the Labor Market</a>. NBER Working Paper 33509. The introduction summarizes the findings clearly.</li>
+            <li>Massenkoff, M. and McCrory, P. (2026). <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank" rel="noopener">Labor Market Impacts of AI: A New Measure and Early Evidence</a>. Anthropic.</li>
+          </ul>
 
-        <article class="paper">
-          <p class="title">Studying Employee Representatives to Better Understand Industrial Relations and the Split of the Value Added</p>
-          <p class="translation" lang="fr">Étudier les représentants du personnel pour mieux comprendre les relations de travail et les conditions du partage de la valeur ajoutée</p>
-          <p class="with">with <a href="https://www.parisschoolofeconomics.eu/en/bourdieu-jerome/" target="_blank" rel="noopener">Jérôme Bourdieu</a> and <a href="http://www.parisschoolofeconomics.com/breda-thomas/index_en.html" target="_blank" rel="noopener">Thomas Breda</a></p>
-          <p class="venue">Report for the French Ministry of Labor (DARES), 2021</p>
-          <div class="links">
-            <a href="https://dares.travail-emploi.gouv.fr/publication/etudier-les-representants-du-personnel-pour-mieux-comprendre-les-relations-de-travail" target="_blank" rel="noopener">Report</a>
-            <a href="lamy-interview.pdf" target="_blank" rel="noopener">Interview for La semaine sociale Lamy</a>
-            <a href="https://www.inegalites.fr/Les-representants-syndicaux-sont-discrimines-dans-l-entreprise" target="_blank" rel="noopener">Article by the French Inequality Watchdog</a>
-          </div>
-        </article>
+          <h3>Labor Supply</h3>
+          <ul class="items">
+            <li><a href="https://www.nber.org/digest/20232/tight-us-labor-market-missing-hours-missing-workers" target="_blank" rel="noopener">The tight US labor market: missing hours, missing workers</a> <span class="src">NBER Digest</span></li>
+            <li><a href="https://youtu.be/mpZKa5bbnUQ?t=448" target="_blank" rel="noopener">How to read income and substitution effects on a graph</a> <span class="src">YouTube</span></li>
+          </ul>
 
-      </div>
-    </section>
+          <h3>Immigration</h3>
+          <ul class="items">
+            <li><a href="https://www.nber.org/reporter/2025number3/effects-high-skilled-immigration" target="_blank" rel="noopener">The effects of high-skilled immigration: immigrants’ role in US innovation and firm creation</a> <span class="src">NBER Reporter</span></li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- ============ AI ============ -->
+      <section id="ai-careers">
+        <h2>Preparing for Your Career in the Age of AI</h2>
+        <div class="entries">
+          <h3>Investing in Creativity and Abstract Reasoning</h3>
+          <ul class="items">
+            <li><a href="https://stvp.stanford.edu/blog/videos/hiring-the-right-people" target="_blank" rel="noopener">Mark Zuckerberg on hiring for raw intelligence (2005)</a> <span class="src">Stanford eCorner</span></li>
+            <li><a href="https://www.tiktok.com/@hardfork/video/7621302160457813261" target="_blank" rel="noopener">A <em>New York Times</em> tech writer</a> <span class="src">TikTok, <em>Hard Fork</em> podcast</span></li>
+            <li>Tristan Harris (Center for Humane Technology) on economics students falling behind: <a href="https://www.tiktok.com/@onwithkaraswisher/video/7624161435635027214" target="_blank" rel="noopener">clip</a>, <a href="https://pocketcasts.com/podcast/on-with-kara-swisher/bdef6f20-0ef2-013b-057e-0acc26574db2/why-the-ai-race-is-leaving-humans-behind-with-tristan-harris/83c6b7a5-ce0d-45b7-a7ef-8aa98941dd10" target="_blank" rel="noopener">full episode</a> <span class="src"><em>On with Kara Swisher</em>, 2026</span></li>
+          </ul>
+
+          <h3>Nourishing Ideas</h3>
+          <ul class="items">
+            <li><a href="https://youtu.be/Etl79iuZxaU?t=1818" target="_blank" rel="noopener">Thomas Bangalter (Daft Punk): do not bypass your creative process</a> <span class="src">YouTube</span></li>
+            <li><a href="https://youtu.be/Oxk5LHiieTE" target="_blank" rel="noopener">David Lynch</a> <span class="src">YouTube</span></li>
+            <li>Terence Tao on mathematical discovery and AI: <a href="https://www.tiktok.com/@dwarkesh_sp/video/7622757089034734861" target="_blank" rel="noopener">clip</a>, <a href="https://www.dwarkesh.com/p/terence-tao" target="_blank" rel="noopener">full episode</a> <span class="src">Dwarkesh Podcast, 2026</span></li>
+          </ul>
+
+          <h3>Working with AI without Outsourcing Your Thinking</h3>
+          <ul class="items">
+            <li><a href="https://dtwuva.substack.com/p/students-should-only-use-ai-for-things" target="_blank" rel="noopener">Students should only use AI for things they already know how to do well</a> <span class="src">Daniel Willingham, Substack</span></li>
+          </ul>
+
+          <h3>The Uncertain Economics of AI</h3>
+          <ul class="items">
+            <li><a href="https://www.sequoiacap.com/article/ais-600b-question/" target="_blank" rel="noopener">AI’s $600B question: the gap between AI spending and AI revenues</a> <span class="src">David Cahn, Sequoia Capital, 2024</span></li>
+          </ul>
+          <ul class="items cites">
+            <li>Massenkoff, M. and McCrory, P. (2026). <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank" rel="noopener">Labor Market Impacts of AI: A New Measure and Early Evidence</a>. Anthropic.</li>
+          </ul>
+
+        </div>
+      </section>
+
+    </div>
 
   </main>
 
-  <footer>Last updated September 2026</footer>
+  <footer>Last updated November 2026</footer>
 
 </div>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function show(name, animate, updateUrl) {
+    tabs.forEach(function (tab) {
+      var on = tab.getAttribute('data-tab') === name;
+      var panel = document.getElementById(tab.getAttribute('aria-controls'));
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      tab.tabIndex = on ? 0 : -1;
+      panel.hidden = !on;
+      if (on && animate) {
+        panel.classList.remove('is-entering');
+        void panel.offsetWidth;
+        panel.classList.add('is-entering');
+      }
+    });
+    if (updateUrl) {
+      try { history.replaceState(null, '', name === 'teaching' ? '#teaching' : location.pathname + location.search); } catch (e) {}
+    }
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () {
+      if (tab.getAttribute('aria-selected') !== 'true') show(tab.getAttribute('data-tab'), true, true);
+    });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+      next.focus();
+      show(next.getAttribute('data-tab'), true, true);
+      e.preventDefault();
+    });
+  });
+  function target(hash) {
+    if (!hash || hash.length < 2) return null;
+    try { return document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) { return null; }
+  }
+  function panelFor(hash) {
+    if (hash === '#teaching') return 'teaching';
+    var el = target(hash), p = el && el.closest ? el.closest('.panel') : null;
+    return p ? p.id.replace('panel-', '') : 'research';
+  }
+  function current() {
+    var t = document.querySelector('.tab[aria-selected="true"]');
+    return t ? t.getAttribute('data-tab') : 'research';
+  }
+  var first = panelFor(location.hash);
+  if (first !== 'research') {
+    show(first, false, false);
+    var el0 = target(location.hash);
+    if (el0 && location.hash !== '#teaching') el0.scrollIntoView();
+  }
+  window.addEventListener('hashchange', function () {
+    var name = panelFor(location.hash);
+    if (name === current()) return;
+    show(name, true, false);
+    var el = target(location.hash);
+    if (el && location.hash !== '#teaching') el.scrollIntoView();
+  });
+})();
+</script>
 </body>
 </html>
