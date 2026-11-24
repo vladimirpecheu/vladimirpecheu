@@ -34,7 +34,6 @@
 
   .page { max-width: 64rem; margin: 0 auto; padding: 4.5rem 1.5rem 3rem; }
 
-  /* Header */
   .name {
     font-family: var(--display);
     font-weight: 700;
@@ -48,10 +47,8 @@
   .contact { display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
   .bio { max-width: 40rem; margin: 2.25rem 0 0; }
 
-  /* Photo: spans from the top of the name to the bottom of the contact links */
   .intro { display: flex; align-items: stretch; gap: 1.75rem; }
   .id { flex: 1 1 auto; }
-  /* Starts just above the top of the name and runs down to about the middle of the bio */
   .photo { position: relative; flex: 0 0 clamp(9rem, 22vw, 12.25rem); aspect-ratio: 275 / 343; align-self: flex-start; margin-top: calc(var(--name-size) * 0.1); }
   .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
   @media (max-width: 559px) {
@@ -59,7 +56,6 @@
     .photo { order: -1; flex: none; width: 7.5rem; aspect-ratio: 275 / 343; margin: 0; }
   }
 
-  /* Sections */
   section {
     display: grid;
     grid-template-columns: 1fr;
@@ -127,7 +123,6 @@
     h2 { position: sticky; top: 1.75rem; align-self: start; }
   }
 
-  /* Research / Teaching tabs */
   .tabs { display: flex; gap: 2.25rem; margin-top: 3.5rem; border-bottom: 1px solid var(--rule); }
   .tab {
     appearance: none; background: none; border: 0; border-bottom: 2px solid transparent;
@@ -155,7 +150,6 @@
   .part .panel-intro { margin-top: 1.25rem; }
   .jump { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; margin: 1rem 0 0; }
 
-  /* Teaching lists */
   h2 .course { display: block; margin-top: 0.15rem; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--muted); }
   h3 { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin: 2rem 0 0.5rem; }
   .entries > h3:first-child { margin-top: 0; }
@@ -203,7 +197,6 @@
   <main>
 
     <div class="panel" id="panel-research" role="tabpanel" aria-labelledby="tab-research">
-      <!-- ============ PUBLISHED PAPERS ============ -->
       <section>
         <h2>Published papers</h2>
         <div class="entries">
@@ -233,7 +226,6 @@
         </div>
       </section>
 
-      <!-- ============ WORKING PAPERS ============ -->
       <section>
         <h2>Working papers</h2>
         <div class="entries">
@@ -290,7 +282,6 @@
         </div>
       </section>
 
-      <!-- ============ WORK IN PROGRESS ============ -->
       <section class="wip">
         <h2>Work in progress</h2>
         <div class="entries">
@@ -321,7 +312,6 @@
         </div>
       </section>
 
-      <!-- ============ POLICY REPORTS ============ -->
       <section>
         <h2>Policy reports</h2>
         <div class="entries">
@@ -355,7 +345,6 @@
         </div>
       </section>
 
-      <!-- ============ POLICY ENGAGEMENT AND MEDIA ============ -->
       <section>
         <h2>Policy engagement and media</h2>
         <div class="entries">
@@ -372,42 +361,37 @@
 
     <div class="panel" id="panel-teaching" role="tabpanel" aria-labelledby="tab-teaching" hidden>
 
-      <!-- ============ COURSES ============ -->
       <section id="courses">
         <h2>Courses</h2>
         <div class="entries">
 
           <article class="paper">
             <p class="title">ECON 102: Introductory Microeconomic Analysis and Policy</p>
-            <p class="venue">General Education course, in person, since Fall 2025</p>
+            <p class="venue">General Education course, in person</p>
             <p class="desc">Will a pricier latte make your coffee shop more money? Why is internet cheaper in France than in the US? How did allowances to pollute stop acid rain in the 1990s? This course answers these questions by analyzing how individuals interact in markets.</p>
           </article>
 
           <article class="paper">
             <p class="title">ECON 333: International Economics</p>
-            <p class="venue">Upper-level course, in person, since Fall 2025</p>
+            <p class="venue">Upper-level course, in person</p>
             <p class="desc">Why has the US run a trade deficit since the 1970s? Why does China control rare earths and the US advanced chips? Models of trade and finance answer these questions and frame the history and politics of trade policy, from Smoot-Hawley to the IEEPA tariffs.</p>
           </article>
 
           <article class="paper">
             <p class="title">ECON 315: Labor Economics</p>
-            <p class="venue">Upper-level course, online (World Campus), since Fall 2025</p>
+            <p class="venue">Upper-level course, online (World Campus)</p>
             <p class="desc">Does a higher minimum wage destroy or create jobs? Do graduates earn more because of what they learned? Why do big firms pay more for the same work? Models of labor supply, labor demand, and human capital, plus minimum wage evidence, answer them.</p>
           </article>
-
-          <!-- Room for evidence: student evaluation results (e.g. "ECON 102, Fall 2025: x.x/7 overall, n responses") and one or two short student quotes. -->
 
         </div>
       </section>
 
-      <!-- ============ RESOURCES FOR STUDENTS ============ -->
       <div class="part" id="resources">
         <h2 class="part-title">Resources for Students</h2>
         <p class="panel-intro">Videos and articles I share with students in my courses at Penn State, grouped by course and topic, followed by a selection on how to prepare for a career in a world with AI. Penn State students can read the <em>New York Times</em> and the <em>Wall Street Journal</em> for free through the <a href="https://studentaffairs.psu.edu/student-services/student-news-readership-program" target="_blank" rel="noopener">Student News Readership Program</a>.</p>
         <nav class="jump" aria-label="Resources by course"><a href="#econ-102">ECON 102</a><a href="#econ-333">ECON 333</a><a href="#econ-315">ECON 315</a><a href="#ai-careers">Careers and AI</a></nav>
       </div>
 
-      <!-- ============ ECON 102 ============ -->
       <section id="econ-102">
         <h2>ECON 102<span class="course">Introductory Microeconomic Analysis and Policy</span></h2>
         <div class="entries">
@@ -440,7 +424,6 @@
         </div>
       </section>
 
-      <!-- ============ ECON 333 ============ -->
       <section id="econ-333">
         <h2>ECON 333<span class="course">International Economics</span></h2>
         <div class="entries">
@@ -518,7 +501,6 @@
         </div>
       </section>
 
-      <!-- ============ ECON 315 ============ -->
       <section id="econ-315">
         <h2>ECON 315<span class="course">Labor Economics</span></h2>
         <div class="entries">
@@ -547,7 +529,6 @@
         </div>
       </section>
 
-      <!-- ============ AI ============ -->
       <section id="ai-careers">
         <h2>Preparing for Your Career in the Age of AI</h2>
         <div class="entries">
